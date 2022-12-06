@@ -1,7 +1,12 @@
 import React from "react";
 import { BiListPlus, BiTrashAlt } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/actionCreators/productActions";
+
 
 const ProductCard = ({ product }) => {
+    const dispatch = useDispatch();
+
     return (
         <div
             className='shadow-lg rounded-3xl border  p-3 flex flex-col text-indigo-900'
@@ -22,6 +27,7 @@ const ProductCard = ({ product }) => {
             <div className='flex gap-2 mt-5'>
                 <button
                     className='bg-indigo-500 rounded-full py-1 px-2 flex-1 text-white text-bold'
+                    onClick={() => dispatch(addToCart(product))}
                 >
                     Add to cart
                 </button>
